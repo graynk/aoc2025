@@ -22,17 +22,17 @@ defmodule Aoc.DayTwo do
     MatchError -> false
   end
 
-  def pattern_checker(bin, counter) do
-    bin
-    |> String.splitter(String.slice(bin, 0..counter))
-    |> Enum.dedup()
-    |> Enum.count() == 1
+  def pattern_checker(bin, counter, len) do
+    symbols = counter + 1
+
+    rem(len, symbols) == 0 and
+      String.count(bin, String.slice(bin, 0..counter)) == div(len, symbols)
   end
 
   def repeat?(bin, counter, len) when is_binary(bin) do
     cond do
       counter == -1 -> false
-      rem(len, counter + 1) == 0 and Aoc.DayTwo.pattern_checker(bin, counter) -> true
+      Aoc.DayTwo.pattern_checker(bin, counter, len) -> true
       true -> Aoc.DayTwo.repeat?(bin, counter - 1, len)
     end
   end
