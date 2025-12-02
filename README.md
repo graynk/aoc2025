@@ -9,3 +9,7 @@ iex -S mix
 # Aoc.DayNUMBER.part_NUMBER("path/to/input"), e.g.:
 Aoc.DayOne.part_one("test/fixtures/day_one/input.txt")
 ```
+
+## Tests
+
+Put your `input.txt`s into `test/fixtures/day_NUMBER/input.txt`
