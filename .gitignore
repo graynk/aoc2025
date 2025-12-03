@@ -22,4 +22,4 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 aoc-*.tar
 
-lib/test/fixtures/day_*/input.txt
+input.txt
