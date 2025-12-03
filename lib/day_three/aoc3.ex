@@ -37,7 +37,6 @@ defmodule Aoc.DayThree do
   end
 
   # Part two
-  #
   defp find_largest_char(<<char::utf8, rest::binary>>, {_, max_char}, current_index, n)
        when char > max_char and byte_size(rest) >= 12 - n do
     find_largest_char(rest, {current_index, char}, current_index + 1, n)
@@ -72,14 +71,14 @@ defmodule Aoc.DayThree do
 
   def part_one(path) do
     File.stream!(path)
-    |> Enum.map(fn line -> String.trim(line) end)
+    |> Enum.map(&String.trim/1)
     |> Enum.filter(fn line -> line != "" end)
     |> Enum.reduce(0, &reduce_part_one/2)
   end
 
   def part_two(path) do
     File.stream!(path)
-    |> Enum.map(fn line -> String.trim(line) end)
+    |> Enum.map(&String.trim/1)
     |> Enum.filter(fn line -> line != "" end)
     |> Enum.reduce(0, &reduce_part_two/2)
   end
