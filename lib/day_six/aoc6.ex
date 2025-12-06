@@ -4,7 +4,7 @@ defmodule Aoc.DaySix do
   end
 
   defp reduce_part_one(["*" | rest_str], {[column | rest_col], sum}) do
-    reduce_part_one(rest_str, {rest_col, sum + Enum.reduce(column, 1, &*/2)})
+    reduce_part_one(rest_str, {rest_col, sum + Enum.product(column)})
   end
 
   defp reduce_part_one([], {[], sum}) do
