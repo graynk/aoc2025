@@ -64,6 +64,10 @@ TEST_FILE="test/day_$WORD/aoc${NUMBER}_test.exs"
 cat > "$TEST_FILE" <<EOF
 defmodule Aoc.Day${CAP}Test do
   use ExUnit.Case, async: true
+
+  test "first part works on the test input" do
+    assert Aoc.Day${CAP}.part_one("test/fixtures/day_${WORD}/testinput.txt") == 0
+  end
 end
 EOF
 
