@@ -95,13 +95,13 @@ defmodule Aoc.DaySix do
       |> File.read!()
       |> String.split("\n")
       |> Enum.map(&String.graphemes/1)
+      |> Enum.drop(-1)
 
-    contents = List.delete_at(contents, length(contents) - 1)
     operators = contents |> List.last() |> pad_operators("", [])
 
     columns =
       contents
-      |> List.delete_at(length(contents) - 1)
+      |> Enum.drop(-1)
       |> Enum.reduce([], &construct_columns/2)
 
     reduce_part_two(columns, operators, 0, 0)
